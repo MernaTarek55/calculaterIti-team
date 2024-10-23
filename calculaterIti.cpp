@@ -1,6 +1,3 @@
-// calculaterIti.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
 #include <string>
 using namespace std;
@@ -12,6 +9,34 @@ int Multiplication(int number1, int number2) {
 int power(int number1, int number2) {
     return number1^number2;
 }
+
+int Addition (int number1, int number2) {
+return number1 + number2;
+}
+
+float Division (float number1, float number2) {
+    return number1 / number2;
+}
+
+long long Factorial (int number) {
+    if (number == 1 || number == 0)
+        return 1;
+    return number * Factorial(number - 1);
+}
+
+
+double SquareRoot(double number)
+{
+    double error = 0.00001; //define the precision of your result
+    double s = number;
+
+    while ((s - number / s) > error) //loop until precision satisfied
+    {
+        s = (s + number / s) / 2;
+    }
+    return s;
+}
+
 
 int extractNumber(const string& operation, int& index) {
     string numberStr = "";
