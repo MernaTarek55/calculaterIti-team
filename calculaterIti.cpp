@@ -23,35 +23,19 @@ int Multiplication(int number1, int number2) {
 }
 
 int power(int number1, int number2) {
-    return number1^number2;
+    int answer = 1;
+    for (int i = 0; i < number2; ++i) {
+        answer *= number1;
+    }
+    return answer;
 }
 
 int Addition (int number1, int number2) {
-return number1 + number2;
+    return number1 + number2;
 }
 float Division (float number1, float number2) {
     return number1 / number2;
 }
-
-long long Factorial (int number) {
-    if (number == 1 || number == 0)
-        return 1;
-    return number * Factorial(number - 1);
-}
-
-
-double SquareRoot(double number)
-{
-    double error = 0.00001; //define the precision of your result
-    double s = number;
-
-    while ((s - number / s) > error) //loop until precision satisfied
-    {
-        s = (s + number / s) / 2;
-    }
-    return s;
-}
-
 
 int extractNumber(const string& operation, int& index) {
     string numberStr = "";
@@ -89,24 +73,27 @@ int main() {
 
     int result;
     switch (op) {
-    case '+':
-        result = Addition(number1, number2);
-        break;
-    case '/':
-        result = Division(number1, number2);
-        break;
-    case '!':
-        result = Factorial(number1);
-        break;
-    case '*':
-        result = Multiplication(number1, number2);
-        break;
-    case '^':
-        result = power(number1, number2);
-        break;
-    default:
-        cout << "Invalid operator!" << endl;
-        return 1;
+        case '+':
+            result = Addition(number1, number2);
+            break;
+        case '-':
+            result = Subtract(number1, number2);
+            break;
+        case '%':
+            result = Modulus(number1, number2);
+            break;
+        case '/':
+            result = Division(number1, number2);
+            break;
+        case '*':
+            result = Multiplication(number1, number2);
+            break;
+        case '^':
+            result = power(number1, number2);
+            break;
+        default:
+            cout << "Invalid operator!" << endl;
+            return 1;
     }
 
     cout << "Result: " << result << endl;
