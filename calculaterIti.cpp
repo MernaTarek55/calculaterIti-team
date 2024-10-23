@@ -6,6 +6,18 @@
 #include <string>
 using namespace std;
 
+
+int Subtract(int num1, int num2) {
+    int subtractnum = num1 - num2;
+    return subtractnum;
+}
+
+int Modulus(int num1, int num2) {
+    int modulus = num1 % num2;
+    return modulus;
+}
+
+
 int Multiplication(int number1, int number2) {
     return number1 * number2;
 }
